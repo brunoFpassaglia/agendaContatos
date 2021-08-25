@@ -17,10 +17,10 @@ class ContactAdapter extends TypeAdapter<Contact> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Contact(
-      name: fields[1] as String,
-      email: fields[2] as String?,
-      phone: fields[3] as String?,
-      img: fields[4] as String?,
+      name: fields[0] as String,
+      email: fields[1] as String?,
+      phone: fields[2] as String?,
+      img: fields[3] as String?,
     );
   }
 
@@ -28,13 +28,13 @@ class ContactAdapter extends TypeAdapter<Contact> {
   void write(BinaryWriter writer, Contact obj) {
     writer
       ..writeByte(4)
-      ..writeByte(1)
+      ..writeByte(0)
       ..write(obj.name)
-      ..writeByte(2)
+      ..writeByte(1)
       ..write(obj.email)
-      ..writeByte(3)
+      ..writeByte(2)
       ..write(obj.phone)
-      ..writeByte(4)
+      ..writeByte(3)
       ..write(obj.img);
   }
 

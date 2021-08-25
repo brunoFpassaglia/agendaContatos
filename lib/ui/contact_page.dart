@@ -31,6 +31,7 @@ class _ContactPageState extends State<ContactPage> {
     _nameController.text = widget.contact?.name ?? '';
     _emailController.text = widget.contact?.email ?? '';
     _phoneController.text = widget.contact?.phone ?? '';
+    _imageController.text = widget.contact?.img ?? '';
   }
 
   @override
@@ -72,8 +73,8 @@ class _ContactPageState extends State<ContactPage> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: widget.contact?.img != null
-                            ? FileImage(File(widget.contact!.img!))
+                        image: _imageController.text.isNotEmpty
+                            ? FileImage(File(_imageController.text))
                             : AssetImage("images/person.png") as ImageProvider,
                         fit: BoxFit.cover),
                   ),
